@@ -149,7 +149,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  return "This is a " + inventory[index].car_make + inventory[index].car_model;
+  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`;
 }
 
 /**
@@ -164,7 +164,7 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(inventory) {
-  return "This is a " + inventory[inventory.length - 1].car_make + inventory[inventory.length - 1].car_model;
+  return `This is a ${inventory[inventory.length - 1].car_make} ${inventory[inventory.length - 1].car_model}`;
 }
 
 /**
@@ -182,7 +182,7 @@ function getLastCarInfo(inventory) {
 function getCarInfoById(inventory, idNum) {
   for (let i = 0; i < inventory.length; i++) {
     if (inventory[i].id === idNum) {
-      return "This is a " + inventory[i].car_make + " " + inventory[i].car_model;
+      return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`;
     }
   }
 }
@@ -219,11 +219,9 @@ function sortCarInventory(inventory) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inventory) {
-  let i = 0;
   let years = [];
-  while (i < inventory.length) {
+  for (let i = 0; i < inventory.length; i++) {
     years.push(inventory[i].car_year);
-    i++
   }
   return years;
 }
@@ -241,13 +239,11 @@ function getModelYears(inventory) {
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(inventory, max_year) {
-  let i = 0;
   let old_cars = [];
-  while (i < inventory.length) {
+  for (let i = 0; i < inventory.length; i++) {
     if (inventory[i].car_year <= max_year){
       old_cars.push(inventory[i]);
     }
-    i++;
   }
   return old_cars;
 }
@@ -264,9 +260,8 @@ function getOlderCars(inventory, max_year) {
  * in the same order as they appear in the original inventory.
 */
 function getGermanCars(inventory) {
-  let i = 0;
   let germanCars = [];
-  while (i < inventory.length) {
+  for (let i = 0; i < inventory.length; i++) {
     switch(inventory[i].car_make) {
       case 'Audi':
       case 'Mercedes-Benz':
@@ -275,7 +270,6 @@ function getGermanCars(inventory) {
         germanCars.push(inventory[i]);
         break;
     }
-    i++;
   }
   return germanCars;
 }
